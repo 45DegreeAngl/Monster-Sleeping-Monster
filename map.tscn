@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpt1pbxqyani4"]
+
+[ext_resource type="Script" path="res://map.gd" id="1_j0kx8"]
+
+[node name="Map" type="Node"]
+script = ExtResource("1_j0kx8")
+
+[node name="Player" type="Node" parent="."]
+
+[node name="Player Spawns" type="Node" parent="."]
+
+[node name="Marker3D" type="Marker3D" parent="Player Spawns"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.67084, 0)
+
+[node name="Hittables" type="Node" parent="."]
+
+[node name="Terrain" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Terrain"]
+use_collision = true
+size = Vector3(30, 1, 35)
+
+[node name="Buildings" type="Node" parent="."]

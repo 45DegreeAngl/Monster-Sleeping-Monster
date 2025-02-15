@@ -1,11 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://juon00x6o2b7"]
+[gd_scene load_steps=5 format=3 uid="uid://juon00x6o2b7"]
 
 [ext_resource type="Script" path="res://cart_test.gd" id="1_qv3xu"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0302x"]
-size = Vector3(1.5, 1, 2)
+size = Vector3(1.5, 1.2, 2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o7526"]
+size = Vector3(1, 0.411133, 1)
 
 [node name="Cart Test" type="CharacterBody3D" node_paths=PackedStringArray("front_ray", "back_ray")]
 script = ExtResource("1_qv3xu")
@@ -16,7 +19,6 @@ back_ray = NodePath("CSGBox3D/Back")
 shape = SubResource("SphereShape3D_6alws")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-visible = false
 size = Vector3(1.6, 1, 2.1)
 
 [node name="Back" type="RayCast3D" parent="CSGBox3D"]
@@ -31,5 +33,12 @@ debug_shape_custom_color = Color(1, 0, 0, 1)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hit box"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0194397)
 shape = SubResource("BoxShape3D_0302x")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321, 0)
+shape = SubResource("BoxShape3D_o7526")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.897713, 0.440582, 0, -0.440582, 0.897713, 0, 2.58966, 3.88132)
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]

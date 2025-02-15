@@ -11,6 +11,7 @@ extends CharacterBody3D
 @export var turn_speed : float = 1.5
 @export var forward_friction : float = 2
 @export var lateral_friction : float = 5
+@export var collision_vector : Vector2 = Vector2(1,2)
 
 var drifting : bool = false
 var current_turn_direction = 0
@@ -63,7 +64,7 @@ func handle_movement(delta):
 func handle_turning(speed,delta):
 	var steer_dir := Input.get_axis("A","D")
 	if drifting:
-		if Input.is_action_just_pressed("Space"):
+		if !Input.is_action_pressed("Space"):
 			drifting = false
 		if current_turn_direction == 1: #if drifting left
 			if steer_dir<0:#turning left
@@ -110,7 +111,7 @@ func align_with_y(xform, new_y):
 
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
-	print(body.name)
+	#print(body.name)
 	if body.has_method("collateral"):
 		print("hit pedestrian")
-		body.collateral(velocity)
+		body.collateral(Vector3(velocity.x*collision_vector.x,velocity.y+collision_vector.y * sqrt(sqrt(velocity.length())),velocity.z*collision_vector.x))

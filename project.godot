@@ -17,3 +17,4 @@ config/icon="res://icon.svg"
 [autoload]
 
 Actions="*res://Actions.gd"
+Globals="*res://Globals.gd"

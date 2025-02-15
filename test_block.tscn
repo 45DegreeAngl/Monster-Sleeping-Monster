@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cif3eg8dji5x2"]
+
+[ext_resource type="Script" path="res://test_block.gd" id="1_wqdeu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1nqp1"]
+size = Vector3(7.5, 1, 7.5)
+
+[node name="Test Block" type="Node3D"]
+script = ExtResource("1_wqdeu")
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(10, 1, 10)
+
+[node name="Spawn Shape" type="Node3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Spawn Shape"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+shape = SubResource("BoxShape3D_1nqp1")
+disabled = true

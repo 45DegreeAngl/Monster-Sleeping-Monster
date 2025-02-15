@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bpgyffvcghhe7"]
+[gd_scene load_steps=4 format=3 uid="uid://bpgyffvcghhe7"]
 
 [ext_resource type="Script" path="res://pedestrian.gd" id="1_pwa4j"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_7rdtq"]
 
-[node name="Pedestrian" type="RigidBody3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5hesx"]
+
+[node name="Pedestrian" type="RigidBody3D" node_paths=PackedStringArray("mesh")]
 script = ExtResource("1_pwa4j")
+mesh = NodePath("CSGCylinder3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_7rdtq")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+material = SubResource("StandardMaterial3D_5hesx")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

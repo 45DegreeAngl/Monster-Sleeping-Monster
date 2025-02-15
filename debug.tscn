@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6sejin3qwltq"]
+[gd_scene load_steps=5 format=3 uid="uid://c6sejin3qwltq"]
 
 [ext_resource type="PackedScene" uid="uid://juon00x6o2b7" path="res://cart_test.tscn" id="2_2axva"]
-[ext_resource type="Script" path="res://target camera.gd" id="2_x0ddg"]
 [ext_resource type="PackedScene" uid="uid://bpgyffvcghhe7" path="res://pedestrian.tscn" id="3_qfgf3"]
 
 [sub_resource type="Sky" id="Sky_04s2w"]
@@ -23,11 +22,6 @@ use_collision = true
 polygon = PackedVector2Array(0, 0, 0, 1, 1, 0)
 depth = 12.73
 
-[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 0.780452, 0.625215, 0, -0.625215, 0.780452, 0, 7.42807, 3.10997)
-script = ExtResource("2_x0ddg")
-target = NodePath("../Cart Test")
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8j2wb")
 
@@ -39,3 +33,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.56778, 0)
 
 [node name="Pedestrian" parent="." instance=ExtResource("3_qfgf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20626, -13.8517)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9699, 0, -36.1804)
+use_collision = true
+size = Vector3(25, 50, 30)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862091, 0, -40.3879)
+use_collision = true
+size = Vector3(25, 50, 30)
