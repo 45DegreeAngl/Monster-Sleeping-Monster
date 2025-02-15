@@ -1,26 +1,15 @@
-extends CharacterBody3D
-class_name Car
+
+extends Car
 ##thanks Toiu for the kart :)
 
-@export var front_ray:RayCast3D
-@export var back_ray:RayCast3D
+
 @export var vision:ShapeCast3D
 @export var los_cast:RayCast3D
 
 @export var isActive:bool = false
-@export var jump_velocity : float = 5
-@export var gravity : float = 20
-@export var engine_power : float = 20.0
-@export var drift_speed : float = 2
-@export var turn_speed : float = 1.5
-@export var forward_friction : float = 2
-@export var lateral_friction : float = 5
-@export var collision_vector : Vector2 = Vector2(1,2)
 
 
-var drifting : bool = false
-var current_turn_direction = 0
-var local_velocity = Vector3.ZERO
+
 var target:CharacterBody3D
 
 func _ready() -> void:

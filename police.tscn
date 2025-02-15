@@ -12,12 +12,12 @@ size = Vector3(1, 0.411133, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6ht3x"]
 
-[node name="Police" type="CharacterBody3D" node_paths=PackedStringArray("front_ray", "back_ray", "vision", "los_cast")]
+[node name="Police" type="CharacterBody3D" node_paths=PackedStringArray("vision", "los_cast", "front_ray", "back_ray")]
 script = ExtResource("1_1iuvb")
-front_ray = NodePath("CSGBox3D/Front")
-back_ray = NodePath("CSGBox3D/Back")
 vision = NodePath("Vision")
 los_cast = NodePath("LOS")
+front_ray = NodePath("CSGBox3D/Front")
+back_ray = NodePath("CSGBox3D/Back")
 gravity = 15.0
 engine_power = 40.0
 turn_speed = 2.0
