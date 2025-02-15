@@ -1,6 +1,22 @@
-extends Car
+extends CharacterBody3D
+class_name Car
 ##thanks Toiu for the kart :)
 
+@export var front_ray:RayCast3D
+@export var back_ray:RayCast3D
+
+@export var jump_velocity : float = 5
+@export var gravity : float = 20
+@export var engine_power : float = 20.0
+@export var drift_speed : float = 2
+@export var turn_speed : float = 1.5
+@export var forward_friction : float = 2
+@export var lateral_friction : float = 5
+@export var collision_vector : Vector2 = Vector2(1,2)
+
+var drifting : bool = false
+var current_turn_direction = 0
+var local_velocity = Vector3.ZERO
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

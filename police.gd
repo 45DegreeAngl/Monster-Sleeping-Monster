@@ -1,25 +1,69 @@
-extends Car
+extends CharacterBody3D
+class_name Car
 ##thanks Toiu for the kart :)
 
+@export var front_ray:RayCast3D
+@export var back_ray:RayCast3D
+@export var vision:ShapeCast3D
+@export var los_cast:RayCast3D
+
+@export var isActive:bool = false
+@export var jump_velocity : float = 5
+@export var gravity : float = 20
+@export var engine_power : float = 20.0
+@export var drift_speed : float = 2
+@export var turn_speed : float = 1.5
+@export var forward_friction : float = 2
+@export var lateral_friction : float = 5
+@export var collision_vector : Vector2 = Vector2(1,2)
+
+
+var drifting : bool = false
+var current_turn_direction = 0
+var local_velocity = Vector3.ZERO
+var target:CharacterBody3D
+
+func _ready() -> void:
+	find_player()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	if Input.is_action_just_pressed("Space") and is_on_floor():
-		velocity.y += jump_velocity
+	#if Input.is_action_just_pressed("Space") and is_on_floor():
+		#velocity.y += jump_velocity
+	target_player()
 	
 	local_velocity = Vector3(basis.x.dot(velocity),basis.y.dot(velocity),basis.z.dot(velocity))
 	
 	apply_friction()
 	
-	handle_movement(delta)
+	#handle_movement(delta)
 	
 	#update global velocity
 	velocity = basis.x * local_velocity.x + basis.y * local_velocity.y + basis.z * local_velocity.z
 	
 	move_and_slide()
 
+func find_player():
+	target = get_tree().get_nodes_in_group("player")[0]
+
+func hunt():
+	print("die idiot")
+	pass
+
+func target_player():
+	if vision.is_colliding() == true && isActive == true:
+		hunt()
+	elif vision.is_colliding() == true && isActive == false:
+		#print("lookin")
+		#print(to_local(target.global_position))
+		los_cast.target_position = los_cast.to_local(target.global_position)
+		#los_cast.force_raycast_update()
+		if los_cast.get_collider() == target:
+			isActive = true
+	elif vision.is_colliding() == false:
+		isActive = false
 
 func apply_friction():
 	local_velocity.z -= local_velocity.z * (forward_friction/100.0)

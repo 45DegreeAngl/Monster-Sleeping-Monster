@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://juon00x6o2b7"]
+[gd_scene load_steps=6 format=3 uid="uid://51xccc0j868o"]
 
-[ext_resource type="Script" path="res://cart_test.gd" id="1_qv3xu"]
+[ext_resource type="Script" path="res://police.gd" id="1_1iuvb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 
@@ -10,14 +10,17 @@ size = Vector3(1.5, 1.2, 2)
 [sub_resource type="BoxShape3D" id="BoxShape3D_o7526"]
 size = Vector3(1, 0.411133, 1)
 
-[node name="Cart Test" type="CharacterBody3D" node_paths=PackedStringArray("front_ray", "back_ray") groups=["player"]]
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("1_qv3xu")
+[sub_resource type="SphereShape3D" id="SphereShape3D_6ht3x"]
+
+[node name="Police" type="CharacterBody3D" node_paths=PackedStringArray("front_ray", "back_ray", "vision", "los_cast")]
+script = ExtResource("1_1iuvb")
 front_ray = NodePath("CSGBox3D/Front")
 back_ray = NodePath("CSGBox3D/Back")
-gravity = 10.0
-engine_power = 60.0
+vision = NodePath("Vision")
+los_cast = NodePath("LOS")
+gravity = 15.0
+engine_power = 40.0
+turn_speed = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6alws")
@@ -44,5 +47,15 @@ shape = SubResource("BoxShape3D_o7526")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.897713, 0.440582, 0, -0.440582, 0.897713, 0, 2.58966, 3.88132)
+
+[node name="Vision" type="ShapeCast3D" parent="."]
+transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)
+shape = SubResource("SphereShape3D_6ht3x")
+target_position = Vector3(0, 0, 0)
+collision_mask = 2
+
+[node name="LOS" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, 0)
+collision_mask = 3
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
