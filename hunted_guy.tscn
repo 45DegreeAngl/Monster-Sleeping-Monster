@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bw6s6ujom3y62"]
+
+[ext_resource type="Script" path="res://hunted_guy.gd" id="1_6bwln"]
+[ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="1_i7otw"]
+
+[node name="Hunted Guy" type="Node3D"]
+script = ExtResource("1_6bwln")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.598555, 0)
+mesh = ExtResource("1_i7otw")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.705453, 0)
+size = Vector3(6.75, 0.001, 1.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0404952, 0.747975)
+size = Vector3(5.41895, 3.59668, 0.001)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.902202, 0.431314, 0, -0.431314, 0.902202, 0, 1.05286, -0.992432)
+size = Vector3(6.75, 0.001, 3.94141)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.103408, -2.44349)
+fov = 37.0217
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.104088, -2.7635)
+light_energy = 2.5
+spot_range = 3.75436
+spot_angle = 21.1601

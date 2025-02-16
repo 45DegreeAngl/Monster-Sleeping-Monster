@@ -9,7 +9,7 @@ var destroyed : bool = false
 func collateral(hit_velocity):
 	self.apply_central_force(hit_velocity * 100)
 	if !destroyed:
-		ive_been_hit.emit(point_value)
+		ive_been_hit.emit(point_value,$Mesh.mesh.surface_get_material(0).albedo_color)
 		destroyed = true
 	$Timer.start()
 
