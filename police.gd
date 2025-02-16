@@ -132,10 +132,3 @@ func align_with_y(xform, new_y):
 	xform.basis.x = -xform.basis.z.cross(new_y)
 	xform.basis = xform.basis.orthonormalized()
 	return xform.orthonormalized()
-
-
-func _on_hit_box_body_entered(body: Node3D) -> void:
-	#print(body.name)
-	if body.has_method("collateral"):
-		print("hit pedestrian")
-		body.collateral(Vector3(velocity.x*collision_vector.x,velocity.y+collision_vector.y * sqrt(sqrt(velocity.length())),velocity.z*collision_vector.x))

@@ -18,6 +18,9 @@ var drifting : bool = false
 var current_turn_direction = 0
 var local_velocity = Vector3.ZERO
 
+func collateral(hit_velocity):
+	velocity += (hit_velocity * 2)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -113,6 +116,6 @@ func align_with_y(xform, new_y):
 
 func _on_hit_box_body_entered(body: Node3D) -> void:
 	#print(body.name)
-	if body.has_method("collateral"):
+	if body.has_method("collateral")&&body !=self:
 		print("hit pedestrian")
 		body.collateral(Vector3(velocity.x*collision_vector.x,velocity.y+collision_vector.y * sqrt(sqrt(velocity.length())),velocity.z*collision_vector.x))

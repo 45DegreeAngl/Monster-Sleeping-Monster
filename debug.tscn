@@ -14,8 +14,9 @@ ambient_light_source = 3
 [node name="Debug" type="Node3D"]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.172, 0, -32.1282)
 use_collision = true
-size = Vector3(100, 1, 100)
+size = Vector3(229.151, 1, 351.74)
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
 transform = Transform3D(-0.0222511, 0, -0.999752, 0, 1, 0, 0.999752, 0, -0.0222511, -2.12589, 0.406794, -6.98239)
