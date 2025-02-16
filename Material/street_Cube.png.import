@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btk64mr6ibr64"
-path.s3tc="res://.godot/imported/PlayerCar_Cylinder_1.png-9c4970ac122640cb396d38266f7cd303.s3tc.ctex"
+uid="uid://t6c5au4pxxnv"
+path.s3tc="res://.godot/imported/street_Cube.png-9f249a3b9a9382b1d9c9bd3973989cab.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "87fa68c922131de7a64253ec1f345180"
+"md5": "8e0e19ba79a8e2129f4cd2b50babe74a"
 }
 
 [deps]
 
-source_file="res://Meshes/PlayerCar_Cylinder_1.png"
-dest_files=["res://.godot/imported/PlayerCar_Cylinder_1.png-9c4970ac122640cb396d38266f7cd303.s3tc.ctex"]
+source_file="res://Material/street_Cube.png"
+dest_files=["res://.godot/imported/street_Cube.png-9f249a3b9a9382b1d9c9bd3973989cab.s3tc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cpgm7dsfirpid"]
 
-[ext_resource type="Script" path="res://police.gd" id="1_1iuvb"]
+[ext_resource type="Script" path="res://Vehicles/Police/police.gd" id="1_1iuvb"]
 [ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_dj82c"]
 [ext_resource type="ArrayMesh" uid="uid://bs8ccaelh8vhg" path="res://Meshes/Wheel 1.tres" id="3_wgu8g"]
 [ext_resource type="ArrayMesh" uid="uid://cqxuapepmjud6" path="res://Meshes/Wheel 2.tres" id="4_qruk3"]

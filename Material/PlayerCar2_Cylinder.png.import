@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dskw1q5htyh1y"
-path.s3tc="res://.godot/imported/monsterman_Material Base Color.png-053c7b87245824435622492a808b215d.s3tc.ctex"
+uid="uid://5oibag8ymesw"
+path.s3tc="res://.godot/imported/PlayerCar2_Cylinder.png-7c3e29853d0936d581e2644be8340bbf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "34bcf8a130bd94c627ba4223ad149273"
+"md5": "1a8ca35147147298a3438ed95fda50e4"
 }
 
 [deps]
 
-source_file="res://Meshes/monsterman_Material Base Color.png"
-dest_files=["res://.godot/imported/monsterman_Material Base Color.png-053c7b87245824435622492a808b215d.s3tc.ctex"]
+source_file="res://Material/PlayerCar2_Cylinder.png"
+dest_files=["res://.godot/imported/PlayerCar2_Cylinder.png-7c3e29853d0936d581e2644be8340bbf.s3tc.ctex"]
 
 [params]
 

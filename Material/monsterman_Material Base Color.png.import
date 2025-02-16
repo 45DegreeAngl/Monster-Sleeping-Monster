@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cckv6utdr1j68"
-path.s3tc="res://.godot/imported/building1_Material Base Color.png-2d8c3c08e6d0d62fa611331bbfec2664.s3tc.ctex"
+uid="uid://dskw1q5htyh1y"
+path.s3tc="res://.godot/imported/monsterman_Material Base Color.png-903881590de8e40b44b39b7bf707f423.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "d4b8d73b1fca7197ac8498f1158a3bd8"
+"md5": "34bcf8a130bd94c627ba4223ad149273"
 }
 
 [deps]
 
-source_file="res://Meshes/building1_Material Base Color.png"
-dest_files=["res://.godot/imported/building1_Material Base Color.png-2d8c3c08e6d0d62fa611331bbfec2664.s3tc.ctex"]
+source_file="res://Material/monsterman_Material Base Color.png"
+dest_files=["res://.godot/imported/monsterman_Material Base Color.png-903881590de8e40b44b39b7bf707f423.s3tc.ctex"]
 
 [params]
 

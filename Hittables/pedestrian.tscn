@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bpgyffvcghhe7"]
 
-[ext_resource type="Script" path="res://pedestrian.gd" id="1_pwa4j"]
+[ext_resource type="Script" path="res://Hittables/pedestrian.gd" id="1_pwa4j"]
 [ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="2_ibvn6"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_52t77"]

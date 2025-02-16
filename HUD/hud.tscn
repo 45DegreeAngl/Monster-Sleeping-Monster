@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://lqa5og6o8evk"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_7ptn1"]
-[ext_resource type="PackedScene" uid="uid://bw6s6ujom3y62" path="res://hunted_guy.tscn" id="2_sb2pq"]
+[ext_resource type="Script" path="res://HUD/hud.gd" id="1_7ptn1"]
+[ext_resource type="PackedScene" uid="uid://bw6s6ujom3y62" path="res://HUD/hunted_guy.tscn" id="2_sb2pq"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -38,7 +38,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(138, 122)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Hunted Guy" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_sb2pq")]

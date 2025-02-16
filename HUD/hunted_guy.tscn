@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bw6s6ujom3y62"]
 
-[ext_resource type="Script" path="res://hunted_guy.gd" id="1_6bwln"]
+[ext_resource type="Script" path="res://HUD/hunted_guy.gd" id="1_6bwln"]
 [ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="1_i7otw"]
 
 [node name="Hunted Guy" type="Node3D"]

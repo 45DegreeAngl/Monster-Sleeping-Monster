@@ -1,7 +1,7 @@
 extends Node
 
-@onready var player_packed : PackedScene = preload("res://cart_test.tscn")
-@onready var pedestrian_packed: PackedScene = preload("res://pedestrian.tscn")
+@onready var player_packed : PackedScene = preload("res://Vehicles/Player/cart_test.tscn")
+@onready var pedestrian_packed: PackedScene = preload("res://Hittables/pedestrian.tscn")
 @onready var player: Node = $Player
 @onready var player_spawns: Node = $"Player Spawns"
 @onready var hittables: Node = $Hittables

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5oibag8ymesw"
-path.s3tc="res://.godot/imported/PlayerCar2_Cylinder.png-a9e412ab664fedc9429d7e3fdd0cdeec.s3tc.ctex"
+uid="uid://btk64mr6ibr64"
+path.s3tc="res://.godot/imported/PlayerCar_Cylinder_1.png-dc6441f161c6ff1a21ea98e05d765cac.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "1a8ca35147147298a3438ed95fda50e4"
+"md5": "87fa68c922131de7a64253ec1f345180"
 }
 
 [deps]
 
-source_file="res://Materials/PlayerCar2_Cylinder.png"
-dest_files=["res://.godot/imported/PlayerCar2_Cylinder.png-a9e412ab664fedc9429d7e3fdd0cdeec.s3tc.ctex"]
+source_file="res://Material/PlayerCar_Cylinder_1.png"
+dest_files=["res://.godot/imported/PlayerCar_Cylinder_1.png-dc6441f161c6ff1a21ea98e05d765cac.s3tc.ctex"]
 
 [params]
 

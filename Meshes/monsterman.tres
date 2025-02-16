@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://crvpu5reylyf"]
 
-[ext_resource type="Texture2D" uid="uid://dskw1q5htyh1y" path="res://Meshes/monsterman_Material Base Color.png" id="1_skv0x"]
+[ext_resource type="Texture2D" uid="uid://dskw1q5htyh1y" path="res://Material/monsterman_Material Base Color.png" id="1_skv0x"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7gl5t"]
 resource_local_to_scene = true

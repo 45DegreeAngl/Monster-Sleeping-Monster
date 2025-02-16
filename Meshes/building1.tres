@@ -1,6 +1,6 @@
 [gd_resource type="ArrayMesh" load_steps=4 format=4 uid="uid://0be2sr38fdpl"]
 
-[ext_resource type="Texture2D" uid="uid://cckv6utdr1j68" path="res://Meshes/building1_Material Base Color.png" id="1_ymehm"]
+[ext_resource type="Texture2D" uid="uid://cckv6utdr1j68" path="res://Material/building1_Material Base Color.png" id="1_ymehm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h4xys"]
 resource_name = "Material"

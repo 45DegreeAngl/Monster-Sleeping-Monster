@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://juon00x6o2b7"]
 
-[ext_resource type="Script" path="res://cart_test.gd" id="1_qv3xu"]
+[ext_resource type="Script" path="res://Vehicles/Player/cart_test.gd" id="1_qv3xu"]
 [ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_avlsg"]
 [ext_resource type="ArrayMesh" uid="uid://bs8ccaelh8vhg" path="res://Meshes/Wheel 1.tres" id="3_80gvt"]
 [ext_resource type="ArrayMesh" uid="uid://cqxuapepmjud6" path="res://Meshes/Wheel 2.tres" id="4_6ighk"]
