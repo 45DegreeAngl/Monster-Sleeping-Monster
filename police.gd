@@ -1,12 +1,11 @@
-
 extends Car
 ##thanks Toiu for the kart :)
 
 
 @export var vision:ShapeCast3D
 @export var los_cast:RayCast3D
-
 @export var isActive:bool = false
+@export var debugCast:RayCast3D
 
 
 
@@ -21,13 +20,13 @@ func _physics_process(delta: float) -> void:
 	
 	#if Input.is_action_just_pressed("Space") and is_on_floor():
 		#velocity.y += jump_velocity
-	target_player()
+
 	
 	local_velocity = Vector3(basis.x.dot(velocity),basis.y.dot(velocity),basis.z.dot(velocity))
 	
 	apply_friction()
 	
-	#handle_movement(delta)
+	target_player(delta)
 	
 	#update global velocity
 	velocity = basis.x * local_velocity.x + basis.y * local_velocity.y + basis.z * local_velocity.z
@@ -37,13 +36,20 @@ func _physics_process(delta: float) -> void:
 func find_player():
 	target = get_tree().get_nodes_in_group("player")[0]
 
-func hunt():
-	print("die idiot")
-	pass
+func hunt(delta):
+	var target_pos = to_local(target.global_position)
+	var direction = front_ray.target_position
+	var angle = direction.direction_to(target_pos)
+	angle = angle.rotated(Vector3.UP,deg_to_rad(270))
+	debugCast.target_position = direction *5
+	var steer_dir = angle.dot(direction) *-1
+	local_velocity.z += engine_power*delta
+	if steer_dir:
+			rotate_y(-steer_dir*delta)
 
-func target_player():
+func target_player(delta):
 	if vision.is_colliding() == true && isActive == true:
-		hunt()
+		hunt(delta)
 	elif vision.is_colliding() == true && isActive == false:
 		#print("lookin")
 		#print(to_local(target.global_position))

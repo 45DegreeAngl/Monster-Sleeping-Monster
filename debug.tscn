@@ -30,7 +30,7 @@ environment = SubResource("Environment_8j2wb")
 transform = Transform3D(1, 0, 0, 0, 0.760995, 0.648758, 0, -0.648758, 0.760995, 0, 5.32047, 0)
 
 [node name="Cart Test" parent="." instance=ExtResource("2_2axva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.56778, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52881, 34.0749)
 
 [node name="Pedestrian" parent="." instance=ExtResource("3_qfgf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20626, -13.8517)

@@ -12,15 +12,16 @@ size = Vector3(1, 0.411133, 1)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6ht3x"]
 
-[node name="Police" type="CharacterBody3D" node_paths=PackedStringArray("vision", "los_cast", "front_ray", "back_ray")]
+[node name="Police" type="CharacterBody3D" node_paths=PackedStringArray("vision", "los_cast", "debugCast", "front_ray", "back_ray")]
 script = ExtResource("1_1iuvb")
 vision = NodePath("Vision")
 los_cast = NodePath("LOS")
+debugCast = NodePath("DebugCast")
 front_ray = NodePath("CSGBox3D/Front")
 back_ray = NodePath("CSGBox3D/Back")
 gravity = 15.0
-engine_power = 40.0
-turn_speed = 2.0
+engine_power = 15.0
+turn_speed = 5.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6alws")
@@ -45,9 +46,6 @@ shape = SubResource("BoxShape3D_0302x")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321, 0)
 shape = SubResource("BoxShape3D_o7526")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.897713, 0.440582, 0, -0.440582, 0.897713, 0, 2.58966, 3.88132)
-
 [node name="Vision" type="ShapeCast3D" parent="."]
 transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)
 shape = SubResource("SphereShape3D_6ht3x")
@@ -57,5 +55,11 @@ collision_mask = 2
 [node name="LOS" type="RayCast3D" parent="."]
 target_position = Vector3(0, 0, 0)
 collision_mask = 3
+
+[node name="DebugCast" type="RayCast3D" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0437927, 0.779236)
+size = Vector3(1, 0.574768, 2.55847)
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
