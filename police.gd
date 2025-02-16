@@ -135,3 +135,10 @@ func align_with_y(xform, new_y):
 	xform.basis.x = -xform.basis.z.cross(new_y)
 	xform.basis = xform.basis.orthonormalized()
 	return xform.orthonormalized()
+
+var cur = 0
+var colors = [Color.RED,Color.BLUE]
+func _on_oscillation_timeout() -> void:
+	$OmniLight3D.light_color = colors[cur]
+	cur+=1
+	cur = cur % colors.size()

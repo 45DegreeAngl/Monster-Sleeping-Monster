@@ -12,3 +12,7 @@ func on_objective_change():
 
 func on_time_changed():
 	$Time.text = Globals.format_seconds_as_time(Globals.time_left_in_sec)
+	if Globals.time_left_in_sec < 30:
+		$Time.modulate = Color.RED
+	else:
+		$Time.modulate = Color(1,1,1,1)

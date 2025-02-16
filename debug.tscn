@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://c6sejin3qwltq"]
+[gd_scene load_steps=7 format=3 uid="uid://c6sejin3qwltq"]
 
 [ext_resource type="PackedScene" uid="uid://juon00x6o2b7" path="res://cart_test.tscn" id="2_2axva"]
 [ext_resource type="PackedScene" uid="uid://bpgyffvcghhe7" path="res://pedestrian.tscn" id="3_qfgf3"]
-[ext_resource type="PackedScene" uid="uid://51xccc0j868o" path="res://police.tscn" id="3_qnnqp"]
+[ext_resource type="PackedScene" uid="uid://cpgm7dsfirpid" path="res://police.tscn" id="3_qnnqp"]
+[ext_resource type="PackedScene" path="res://building1.tscn" id="4_6dlxd"]
 
 [sub_resource type="Sky" id="Sky_04s2w"]
 
@@ -30,16 +31,8 @@ environment = SubResource("Environment_8j2wb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.760995, 0.648758, 0, -0.648758, 0.760995, 0, 5.32047, 0)
 
-[node name="Cart Test" parent="." instance=ExtResource("2_2axva")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52881, 34.0749)
-
 [node name="Pedestrian" parent="." instance=ExtResource("3_qfgf3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20626, -13.8517)
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.9699, 0, -36.1804)
-use_collision = true
-size = Vector3(25, 50, 30)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862091, 0, -40.3879)
@@ -47,4 +40,10 @@ use_collision = true
 size = Vector3(25, 50, 30)
 
 [node name="Police" parent="." instance=ExtResource("3_qnnqp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.49144, 7.24476)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.60832, 0)
+
+[node name="Cart Test" parent="." instance=ExtResource("2_2axva")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35339, 17.8397)
+
+[node name="Node3D" parent="." instance=ExtResource("4_6dlxd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4353, 5.08943, -32.0217)

@@ -1,6 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://51xccc0j868o"]
+[gd_scene load_steps=11 format=3 uid="uid://cpgm7dsfirpid"]
 
 [ext_resource type="Script" path="res://police.gd" id="1_1iuvb"]
+[ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_dj82c"]
+[ext_resource type="ArrayMesh" uid="uid://bs8ccaelh8vhg" path="res://Meshes/Wheel 1.tres" id="3_wgu8g"]
+[ext_resource type="ArrayMesh" uid="uid://cqxuapepmjud6" path="res://Meshes/Wheel 2.tres" id="4_qruk3"]
+[ext_resource type="ArrayMesh" uid="uid://b5ykghvir3y18" path="res://Meshes/Wheel 3.tres" id="5_b4fer"]
+[ext_resource type="ArrayMesh" uid="uid://cfv7q76c04688" path="res://Meshes/Wheel 4.tres" id="6_yxeap"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 
@@ -17,8 +22,8 @@ script = ExtResource("1_1iuvb")
 vision = NodePath("Vision")
 los_cast = NodePath("LOS")
 debugCast = NodePath("DebugCast")
-front_ray = NodePath("CSGBox3D/Front")
-back_ray = NodePath("CSGBox3D/Back")
+front_ray = NodePath("Node3D/Front")
+back_ray = NodePath("Node3D/Back")
 gravity = 15.0
 engine_power = 15.0
 turn_speed = 5.0
@@ -26,16 +31,6 @@ collision_vector = Vector2(1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6alws")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="."]
-size = Vector3(1.6, 1, 2.1)
-
-[node name="Back" type="RayCast3D" parent="CSGBox3D"]
-target_position = Vector3(0, 0, -1)
-
-[node name="Front" type="RayCast3D" parent="CSGBox3D"]
-target_position = Vector3(0, 0, 1)
-debug_shape_custom_color = Color(1, 0, 0, 1)
 
 [node name="Hit box" type="Area3D" parent="."]
 
@@ -59,8 +54,55 @@ collision_mask = 3
 
 [node name="DebugCast" type="RayCast3D" parent="."]
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0437927, 0.779236)
-size = Vector3(1, 0.574768, 2.55847)
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(-0.18, 0, -1.74846e-08, 0, 0.2, 0, 1.57361e-08, 0, -0.2, 0, -1.46712, 0.874561)
+
+[node name="Cube" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.954797, 0)
+mesh = ExtResource("2_dj82c")
+skeleton = NodePath("")
+
+[node name="Cylinder" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -4.00817, 5.52053, 9.90203)
+mesh = ExtResource("3_wgu8g")
+skeleton = NodePath("")
+
+[node name="Cylinder_001" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -4.00817, 5.52053, 4.12367)
+mesh = ExtResource("4_qruk3")
+skeleton = NodePath("")
+
+[node name="Cylinder_002" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 3.46303, 5.52053, 4.12367)
+mesh = ExtResource("5_b4fer")
+skeleton = NodePath("")
+
+[node name="Cylinder_003" type="MeshInstance3D" parent="Node3D"]
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, 3.46303, 5.52053, 9.90203)
+mesh = ExtResource("6_yxeap")
+skeleton = NodePath("")
+
+[node name="Back" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(5.55556, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7.3356, 5.5057)
+target_position = Vector3(0, 0, -1)
+
+[node name="Front" type="RayCast3D" parent="Node3D"]
+transform = Transform3D(5.55556, 0, 0, 0, 5, 0, 0, 0, 5, 0, 7.3356, 5.5057)
+target_position = Vector3(0, 0, 1)
+debug_shape_custom_color = Color(1, 0, 0, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.407677, 0)
+light_color = Color(0, 0, 1, 1)
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367659, -0.0383739)
+rings = 2
+
+[node name="Oscillation" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
+[connection signal="timeout" from="Oscillation" to="." method="_on_oscillation_timeout"]
