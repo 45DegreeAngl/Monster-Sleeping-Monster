@@ -19,7 +19,7 @@ var current_turn_direction = 0
 var local_velocity = Vector3.ZERO
 
 func collateral(hit_velocity):
-	velocity += (hit_velocity * 2)
+	velocity += (hit_velocity * 1.5)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -37,7 +37,9 @@ func _physics_process(delta: float) -> void:
 	#update global velocity
 	velocity = basis.x * local_velocity.x + basis.y * local_velocity.y + basis.z * local_velocity.z
 	
-	move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal())
 
 
 func apply_friction():

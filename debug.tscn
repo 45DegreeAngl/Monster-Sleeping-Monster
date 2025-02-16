@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://juon00x6o2b7" path="res://cart_test.tscn" id="2_2axva"]
 [ext_resource type="PackedScene" uid="uid://bpgyffvcghhe7" path="res://pedestrian.tscn" id="3_qfgf3"]
-[ext_resource type="PackedScene" path="res://police.tscn" id="3_qnnqp"]
+[ext_resource type="PackedScene" uid="uid://51xccc0j868o" path="res://police.tscn" id="3_qnnqp"]
 
 [sub_resource type="Sky" id="Sky_04s2w"]
 

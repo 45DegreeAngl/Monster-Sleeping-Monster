@@ -32,6 +32,9 @@ func _physics_process(delta: float) -> void:
 	velocity = basis.x * local_velocity.x + basis.y * local_velocity.y + basis.z * local_velocity.z
 	
 	move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		velocity = velocity.bounce(collision_info.get_normal()) /2
 
 func find_player():
 	target = get_tree().get_nodes_in_group("player")[0]

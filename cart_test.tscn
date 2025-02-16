@@ -24,6 +24,7 @@ front_ray = NodePath("CSGBox3D/Front")
 back_ray = NodePath("CSGBox3D/Back")
 gravity = 10.0
 engine_power = 60.0
+collision_vector = Vector2(1, 1)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6alws")
