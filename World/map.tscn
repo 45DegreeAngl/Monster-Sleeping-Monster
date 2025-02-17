@@ -704,7 +704,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.0508, 667.16, 53.3096)
 curve = SubResource("Curve3D_410jk")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="CanvasLayer/Main Menu/SubViewportContainer/SubViewport/Path3D"]
-transform = Transform3D(-0.894294, 0.00126092, 0.447473, 0.00127421, 0.999997, -0.000271305, -0.447472, 0.000327547, -0.894297, -369.386, 0.357768, -720.921)
+transform = Transform3D(-0.894293, 0.00123698, 0.447474, 0.00124744, 0.999997, -0.000271306, -0.447473, 0.00031557, -0.894297, -369.386, 0.357767, -720.921)
 progress = 1711.71
 
 [node name="Camera3D" type="Camera3D" parent="CanvasLayer/Main Menu/SubViewportContainer/SubViewport/Path3D/PathFollow3D" node_paths=PackedStringArray("target")]

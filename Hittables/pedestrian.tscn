@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpgyffvcghhe7"]
+[gd_scene load_steps=8 format=3 uid="uid://bpgyffvcghhe7"]
 
 [ext_resource type="Script" path="res://Hittables/pedestrian.gd" id="1_pwa4j"]
 [ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="2_ibvn6"]
@@ -10,10 +10,19 @@
 height = 1.35775
 radius = 0.383004
 
-[node name="Pedestrian" type="RigidBody3D" node_paths=PackedStringArray("mesh")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ukldi"]
+albedo_color = Color(0.801263, 4.23551e-06, 2.88785e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cf4mv"]
+material = SubResource("StandardMaterial3D_ukldi")
+radius = 0.1
+height = 0.2
+
+[node name="Pedestrian" type="RigidBody3D" node_paths=PackedStringArray("bloodSpray", "mesh")]
 disable_mode = 1
 physics_material_override = SubResource("PhysicsMaterial_52t77")
 script = ExtResource("1_pwa4j")
+bloodSpray = NodePath("BloodSpray")
 mesh = NodePath("Mesh")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
@@ -28,5 +37,22 @@ one_shot = true
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_dwwpj")
+
+[node name="BloodSpray" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 20
+lifetime = 0.31
+one_shot = true
+explosiveness = 0.8
+randomness = 0.39
+lifetime_randomness = 0.29
+mesh = SubResource("SphereMesh_cf4mv")
+direction = Vector3(0, 0, 0)
+spread = 88.64
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+linear_accel_min = 20.68
+linear_accel_max = 54.54
+color = Color(0.81502, 3.58574e-06, 7.70092e-07, 1)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -40,7 +40,7 @@ stretch = true
 
 [node name="SubViewport" type="SubViewport" parent="VBoxContainer/SubViewportContainer"]
 handle_input_locally = false
-size = Vector2i(138, 122)
+size = Vector2i(2, 2)
 render_target_update_mode = 4
 
 [node name="Hunted Guy" parent="VBoxContainer/SubViewportContainer/SubViewport" instance=ExtResource("2_sb2pq")]
