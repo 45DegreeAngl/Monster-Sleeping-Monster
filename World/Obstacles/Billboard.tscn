@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://btjxebksfswun"]
+
+[ext_resource type="ArrayMesh" uid="uid://28obe2ofefnh" path="res://Meshes/billboard.tres" id="1_5bcm3"]
+
+[node name="CSGMesh3D" type="CSGMesh3D"]
+use_collision = true
+mesh = ExtResource("1_5bcm3")

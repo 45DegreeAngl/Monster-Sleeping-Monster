@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqa5og6o8evk"]
+[gd_scene load_steps=5 format=3 uid="uid://lqa5og6o8evk"]
 
 [ext_resource type="Script" path="res://HUD/hud.gd" id="1_7ptn1"]
 [ext_resource type="PackedScene" uid="uid://bw6s6ujom3y62" path="res://HUD/hunted_guy.tscn" id="2_sb2pq"]
+[ext_resource type="Texture2D" uid="uid://evrv64usvh64" path="res://Assets/Board.png" id="2_vd7vu"]
 [ext_resource type="Texture2D" uid="uid://crgc7uhtaddfa" path="res://Assets/heart_container.png" id="3_ofigt"]
 
 [node name="HUD" type="Control"]
@@ -12,6 +13,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7ptn1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="Time" type="Label" parent="."]
 layout_mode = 1
@@ -24,14 +30,24 @@ offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 30
 
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.822049
+anchor_right = 0.99566
+anchor_bottom = 0.549383
+offset_bottom = 3.05176e-05
+texture = ExtResource("2_vd7vu")
+metadata/_edit_use_anchors_ = true
+
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -138.0
-offset_bottom = 176.0
+anchors_preset = -1
+anchor_left = 0.848958
+anchor_top = 0.145062
+anchor_right = 0.96875
+anchor_bottom = 0.416667
 grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -48,17 +64,42 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -67.2653, 0)
 
 [node name="Hunted Color" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "HUNTING : WHITE"
+horizontal_alignment = 1
+clip_text = true
 
 [node name="Current Multiplier" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 12
 text = "MULTIPLIER: "
+horizontal_alignment = 1
+clip_text = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.154514
+offset_top = 100.0
+offset_right = 22.0
+offset_bottom = 456.0
+rotation = -1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vd7vu")
+stretch_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Point Total" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = -1
+offset_right = 178.0
+offset_bottom = 100.0
 theme_override_font_sizes/font_size = 30
+text = "Points"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 

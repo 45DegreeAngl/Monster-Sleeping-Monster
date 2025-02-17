@@ -4,19 +4,20 @@ extends Node
 @onready var pedestrian_packed: PackedScene = preload("res://Hittables/pedestrian.tscn")
 @onready var cop_packed : PackedScene = preload("res://Vehicles/Police/police.tscn")
 @onready var main_menu_music : AudioStream = preload("res://Sounds/Title.mp3")
-@onready var in_game_music : AudioStream = null
+@onready var in_game_music : AudioStream = preload("res://Sounds/Drive_Music.wav")
 @onready var player: Node = $Player
 @onready var player_spawns: Node = $"Player Spawns"
 @onready var hittables: Node = $Hittables
 @onready var pedestrian_spawns: Node = $"Pedestrian Spawns"
 @onready var terrain: Node = $Terrain
 @onready var buildings: Node = $Buildings
-
+ 
 func _ready() -> void:
 	process_mode = PROCESS_MODE_DISABLED
 
 func start():
 	$AudioStreamPlayer.stream = in_game_music
+	$AudioStreamPlayer.play()
 	$CanvasLayer/HUD.visible = true
 	$"CanvasLayer/Main Menu".visible = false
 	$"CanvasLayer/Main Menu/SubViewportContainer/SubViewport/Path3D/PathFollow3D/Camera3D".current = false

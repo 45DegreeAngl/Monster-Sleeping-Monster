@@ -3,6 +3,8 @@ extends Car
 @export var target : Node3D
 @onready var compass: Node3D = $Compass
 
+@onready var boings : Array = [preload("res://Sounds/boing 1.wav"),preload("res://Sounds/boing 2.wav"),preload("res://Sounds/boing 3.wav")]
+
 func collateral(hit_velocity):
 	Globals.lives -= 1
 	velocity += (hit_velocity * 1.5)
@@ -29,6 +31,8 @@ func _physics_process(delta: float) -> void:
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
 		velocity = velocity.bounce(collision_info.get_normal()) /2
+		$Boingo.stream = Globals.get_random_element(boings)
+		$Boingo.play()
 
 
 func apply_friction():

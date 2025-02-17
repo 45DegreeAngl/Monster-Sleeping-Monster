@@ -112,5 +112,7 @@ volume_db = 1.0
 pitch_scale = 0.5
 autoplay = true
 
+[node name="Boingo" type="AudioStreamPlayer3D" parent="."]
+
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="Reassign target" to="." method="calculate_closest_target"]
