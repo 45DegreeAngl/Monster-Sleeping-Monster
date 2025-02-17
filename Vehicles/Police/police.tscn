@@ -44,7 +44,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.321, 0)
 shape = SubResource("BoxShape3D_o7526")
 
 [node name="Vision" type="ShapeCast3D" parent="."]
-transform = Transform3D(60, 0, 0, 0, 60, 0, 0, 0, 60, 0, 0, 0)
+transform = Transform3D(200, 0, 0, 0, 200, 0, 0, 0, 200, 0, 0, 0)
 shape = SubResource("SphereShape3D_6ht3x")
 target_position = Vector3(0, 0, 0)
 collision_mask = 2
