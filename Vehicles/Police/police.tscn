@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cpgm7dsfirpid"]
+[gd_scene load_steps=12 format=3 uid="uid://cpgm7dsfirpid"]
 
 [ext_resource type="Script" path="res://Vehicles/Police/police.gd" id="1_1iuvb"]
 [ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_dj82c"]
@@ -6,6 +6,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cqxuapepmjud6" path="res://Meshes/Wheel 2.tres" id="4_qruk3"]
 [ext_resource type="ArrayMesh" uid="uid://b5ykghvir3y18" path="res://Meshes/Wheel 3.tres" id="5_b4fer"]
 [ext_resource type="ArrayMesh" uid="uid://cfv7q76c04688" path="res://Meshes/Wheel 4.tres" id="6_yxeap"]
+[ext_resource type="PackedScene" uid="uid://bnkcet013n46e" path="res://World/Objects/eyeball.tscn" id="7_wfcku"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 
@@ -98,6 +99,9 @@ light_color = Color(0, 0, 1, 1)
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.367659, -0.0383739)
 rings = 2
+
+[node name="eyeball" parent="CSGSphere3D" instance=ExtResource("7_wfcku")]
+transform = Transform3D(0.0297642, 0, -0.111081, 0, 0.115, 0, 0.111081, 0, 0.0297642, 0, 0, 0)
 
 [node name="Oscillation" type="Timer" parent="."]
 process_callback = 0

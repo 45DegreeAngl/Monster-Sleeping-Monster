@@ -5,6 +5,7 @@ extends Node
 @onready var player: Node = $Player
 @onready var player_spawns: Node = $"Player Spawns"
 @onready var hittables: Node = $Hittables
+@onready var pedestrian_spawns: Node = $"Pedestrian Spawns"
 @onready var terrain: Node = $Terrain
 @onready var buildings: Node = $Buildings
 
@@ -34,16 +35,10 @@ func randomize_objectives():
 func _process(delta: float) -> void:
 	Globals.total_time_in_sec += delta
 	Globals.time_left_in_sec -= delta
-	if Globals.total_time_in_sec > 5.0 and hittables.get_child_count()<5:
-		print("Making pedestrian")
-		var chosen_place = Globals.get_random_child(player_spawns)
-		var pedestrian = create_pedestrian()
-		hittables.add_child(pedestrian)
-		pedestrian.global_position = chosen_place.global_position
 	
-	if roundi(Globals.total_time_in_sec) % 30 == 0:
+	if rolling:
 		randomize_objectives()
-	
+		
 
 ##if they hit the current color, they get bonus points, if they hit the wrong color they earn points but a lot less
 func receive_points(points,color):
@@ -75,4 +70,35 @@ func create_pedestrian()->RigidBody3D:
 	ped_mesh.surface_set_material(0,ped_material)
 	pedestrian_instance.get_node("Mesh").mesh = ped_mesh
 	pedestrian_instance.ive_been_hit.connect(receive_points)
+	if !Globals.target_dictionary.has(ped_material.albedo_color):
+		Globals.target_dictionary[ped_material.albedo_color] = []
+	Globals.target_dictionary[ped_material.albedo_color].append(pedestrian_instance)
+	if ped_material.albedo_color == Globals.cur_chosen_color:
+		print("A TARGET HAS SPAWNED")
 	return pedestrian_instance
+
+var time_of_day_in_deg = 200
+func _on_1_second_timeout() -> void:
+	$Light/Sun.rotation.x = deg_to_rad(time_of_day_in_deg)
+	time_of_day_in_deg+=2
+	time_of_day_in_deg = time_of_day_in_deg%360
+
+func _on_hittable_timeout() -> void:
+	#return
+	if hittables.get_child_count()>=Globals.spawn_cap:
+		return
+	var chosen_place = Globals.get_random_point_within_shape(Globals.get_random_child(pedestrian_spawns))
+	var pedestrian = create_pedestrian()
+	hittables.add_child(pedestrian)
+	pedestrian.global_position = chosen_place
+
+var rolling : bool = false
+func _on_randomize_objective_timer_timeout() -> void:
+	$CanvasLayer/HUD.play_roll()
+	$Balls.start()
+	rolling = true
+
+
+func _on_balls_timeout() -> void:
+	rolling = false
+	$CanvasLayer/HUD.play_win()

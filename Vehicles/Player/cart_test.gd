@@ -1,10 +1,13 @@
 extends Car
 ##thanks Toiu for the kart :)
-
+@export var target : Node3D
+@onready var compass: Node3D = $Compass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	else:
+		rotation = Vector3(0,rotation.y,0)
 	
 	if Input.is_action_just_pressed("Space") and is_on_floor():
 		velocity.y += jump_velocity
@@ -80,16 +83,44 @@ func global_velocity_to_local(global_vel)->Vector3:
 	)
 
 ##visually change the chasis
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
+	if is_instance_valid(target) and target:
+		compass.look_at(target.global_position)
+	else:
+		compass.rotation = Vector3(deg_to_rad(-90),0,0)
 	#front_ray.global_position = global_position
 	#back_ray.global_position = global_position
 
-	if is_on_floor():
-		if front_ray.is_colliding() and back_ray.is_colliding():
-			var ray_normal = (front_ray.get_collision_normal() + back_ray.get_collision_normal()) /2.0
-			var xform = align_with_y(global_transform, ray_normal)
-			global_transform = global_transform.interpolate_with(xform,10*delta)
+	#if is_on_floor():
+		#if front_ray.is_colliding() and back_ray.is_colliding():
+			#var ray_normal = (front_ray.get_collision_normal() + back_ray.get_collision_normal()) /2.0
+			#var xform = align_with_y(global_transform, ray_normal)
+			#global_transform = global_transform.interpolate_with(xform,10*delta)
 
+func calculate_closest_target():
+	var current_winner = null
+	var current_distance = 0
+	if !Globals.target_dictionary.has(Globals.cur_chosen_color):
+		target = current_winner
+		return
+	
+	if Globals.target_dictionary[Globals.cur_chosen_color].is_empty():
+		target = current_winner
+		return
+	
+	for pedestrian:Node3D in Globals.target_dictionary[Globals.cur_chosen_color]:
+		if !is_instance_valid(pedestrian):
+			continue
+		if current_winner==null :
+			current_winner = pedestrian
+			current_distance = pedestrian.global_position.distance_to(global_position)
+			continue
+		
+		if pedestrian.global_position.distance_to(global_position)<current_distance:
+			current_winner = pedestrian
+			current_distance = pedestrian.global_position.distance_to(global_position)
+	print("target has been set")
+	target = current_winner
 
 func align_with_y(xform, new_y):
 	xform.basis.y = new_y

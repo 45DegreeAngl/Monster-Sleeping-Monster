@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwughhvhgx3x7"]
+
+[ext_resource type="Texture2D" uid="uid://crkyry4ifeiyy" path="res://Material/street_Material Base Color.png" id="1_cvjg2"]
+[ext_resource type="Texture2D" uid="uid://dc17reiry7upl" path="res://temp/streetcorner_Material Base Color.png" id="2_1qekx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ey84t"]
+albedo_texture = ExtResource("1_cvjg2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihg6r"]
+albedo_texture = ExtResource("2_1qekx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt8w1"]
+albedo_texture = ExtResource("2_1qekx")
+
+[node name="Platforms" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0466, 0)
+use_collision = true
+size = Vector3(2.5, 5, 2.5)
+material = SubResource("StandardMaterial3D_ey84t")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_ihg6r")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 1, 0)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 3, 0)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")

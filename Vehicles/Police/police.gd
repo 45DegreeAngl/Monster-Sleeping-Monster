@@ -49,6 +49,7 @@ func hunt(delta):
 	local_velocity.z += engine_power*delta
 	if steer_dir:
 			rotate_y(-steer_dir*delta)
+	
 
 func target_player(delta):
 	if vision.is_colliding() == true && isActive == true:

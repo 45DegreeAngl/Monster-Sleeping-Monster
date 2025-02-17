@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://btwcb7stky1n5"]
+
+[ext_resource type="ArrayMesh" uid="uid://bxvyjnnylswa5" path="res://Meshes/tree stump.tres" id="1_5gh08"]
+[ext_resource type="PackedScene" uid="uid://8vey18wbmkkj" path="res://World/Obstacles/Eyeball.tscn" id="2_r3p8k"]
+
+[node name="Tree" type="CSGMesh3D"]
+use_collision = true
+mesh = ExtResource("1_5gh08")
+
+[node name="CSGMesh3D" parent="." instance=ExtResource("2_r3p8k")]
+transform = Transform3D(-0.106237, -2.11566, 0.0843034, 1.88573, -0.0561549, 0.967091, -0.962877, 0.12345, 1.88468, 0, 10.7319, 0)

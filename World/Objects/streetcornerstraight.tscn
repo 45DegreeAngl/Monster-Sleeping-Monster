@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://eqx3hvovmewv"]
+
+[ext_resource type="ArrayMesh" uid="uid://buqq6hk81m08y" path="res://Meshes/streetcornerstraightsidewalk.tres" id="1_130rm"]
+
+[node name="streetcornerstraight" type="MeshInstance3D"]
+transform = Transform3D(0.92, 0, 0, 0, 0.92, 0, 0, 0, 0.92, 0.0787334, 0, -2.54566)
+mesh = ExtResource("1_130rm")

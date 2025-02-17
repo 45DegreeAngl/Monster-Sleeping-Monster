@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ca55ida2slu0v"
+path="res://.godot/imported/Jackpot Slot Machine Sounds Effect Casino.wav-af89dc4d384ceadec842f59544ddc801.sample"
+
+[deps]
+
+source_file="res://Sounds/Jackpot Slot Machine Sounds Effect Casino.wav"
+dest_files=["res://.godot/imported/Jackpot Slot Machine Sounds Effect Casino.wav-af89dc4d384ceadec842f59544ddc801.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

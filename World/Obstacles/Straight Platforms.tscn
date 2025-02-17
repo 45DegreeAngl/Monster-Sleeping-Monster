@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://seenhv5a4v5a"]
+
+[ext_resource type="Texture2D" uid="uid://dc17reiry7upl" path="res://temp/streetcorner_Material Base Color.png" id="1_l1ghj"]
+[ext_resource type="PackedScene" uid="uid://c4dwwx2psj5e0" path="res://World/Obstacles/straight_ramp.tscn" id="2_5jyc2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ihg6r"]
+albedo_texture = ExtResource("1_l1ghj")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gt8w1"]
+albedo_texture = ExtResource("1_l1ghj")
+
+[node name="Platforms" type="Node3D"]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.5)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_ihg6r")
+
+[node name="Straight Ramp" parent="CSGBox3D2" instance=ExtResource("2_5jyc2")]
+transform = Transform3D(-0.00322348, 0, -2.51526, 0, 1.94873, 0, 1.00375, 0, -0.00807759, -1.25023, -0.505048, 1.25443)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.5)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")
+
+[node name="Straight Ramp2" parent="CSGBox3D3" instance=ExtResource("2_5jyc2")]
+transform = Transform3D(-0.00322348, 0, -2.51526, 0, 1.94873, 0, 1.00375, 0, -0.00807759, -1.25023, -0.478853, 1.27316)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -1.5)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")
+
+[node name="Straight Ramp3" parent="CSGBox3D4" instance=ExtResource("2_5jyc2")]
+transform = Transform3D(-0.00322348, 0, -2.51526, 0, 1.94873, 0, 1.00375, 0, -0.00807759, -1.25023, -0.486975, 1.24256)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4.5)
+use_collision = true
+size = Vector3(2.5, 1, 2.5)
+material = SubResource("StandardMaterial3D_gt8w1")
+
+[node name="Straight Ramp4" parent="CSGBox3D5" instance=ExtResource("2_5jyc2")]
+transform = Transform3D(-0.00322348, 0, -2.51526, 0, 1.94873, 0, 1.00375, 0, -0.00807759, -1.25023, -0.465236, 1.25826)

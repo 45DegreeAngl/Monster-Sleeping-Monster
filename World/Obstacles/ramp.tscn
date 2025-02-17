@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://boq21432gl2ov"]
+
+[ext_resource type="Texture2D" uid="uid://dc17reiry7upl" path="res://temp/streetcorner_Material Base Color.png" id="1_ogh2o"]
+[ext_resource type="Texture2D" uid="uid://ek48623eocwo" path="res://temp/eyeball_Sphere Base Color.png" id="2_pc2ck"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2qvnl"]
+albedo_texture = ExtResource("1_ogh2o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x7fwk"]
+albedo_texture = ExtResource("2_pc2ck")
+
+[node name="Ramp" type="Node3D"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+use_collision = true
+polygon = PackedVector2Array(5, 0, 5, 0.5, 7.5, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 15
+material = SubResource("StandardMaterial3D_2qvnl")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0201588, 0)
+material_override = SubResource("StandardMaterial3D_x7fwk")
+use_collision = true
+radius = 5.34
+height = 0.438
+material = SubResource("StandardMaterial3D_2qvnl")

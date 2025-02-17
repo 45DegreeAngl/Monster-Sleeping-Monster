@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://8vey18wbmkkj"]
+
+[ext_resource type="ArrayMesh" uid="uid://c3cqehflq0swo" path="res://Meshes/eyeball.tres" id="1_pbyqq"]
+
+[node name="CSGMesh3D" type="CSGMesh3D"]
+use_collision = true
+mesh = ExtResource("1_pbyqq")

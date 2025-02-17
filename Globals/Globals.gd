@@ -24,6 +24,8 @@ const multipliers : Array[float] = [1.0,0.5,0.3,1.5,2.0,3.0,4.0,5.0,7.5,10.0,15.
 		cur_chosen_multiplier = value
 		chosen_multiplier_changed.emit()
 ##pedestrian constants
+const spawn_cap : int = 500
+var target_dictionary : Dictionary = {}
 #color
 const colors : Dictionary = {
 	Color(1,1,1,1):"Pure White",
@@ -117,10 +119,11 @@ func get_random_point_within_shape(collision_shape : CollisionShape3D) -> Vector
 		verticies = get_verticies_in_sphere(collision_shape.shape)
 	elif collision_shape.shape is CapsuleShape3D:
 		verticies = get_verticies_in_capsule(collision_shape.shape)
+	elif collision_shape.shape is CylinderShape3D:
+		verticies = get_verticies_in_cylinder(collision_shape.shape)
 	else:
 		return Vector3.ZERO  # Return a default value if shape is not supported
-
-	return verticies[randi() % verticies.size()]
+	return verticies[randi() % verticies.size()] + collision_shape.global_position
 
 func get_verticies_in_box(box_shape : BoxShape3D) -> Array:
 	var verticies = []
@@ -159,6 +162,22 @@ func get_verticies_in_capsule(capsule_shape : CapsuleShape3D) -> Array:
 		var z = randf_range(-height / 2, height / 2)  # Random point along the height
 		if randi() % 2 == 0:
 			z += sign(z) * radius  # Adjust for the capsule ends
+		var point = Vector3(x, y, z)
+		verticies.append(point)
+
+	return verticies
+
+func get_verticies_in_cylinder(cylinder_shape : CylinderShape3D) -> Array:
+	var verticies = []
+	var radius = cylinder_shape.radius
+	var height = cylinder_shape.height
+
+	for i in range(1000):  # Generate a set of random verticies
+		var theta = randf() * TAU
+		var r = sqrt(randf()) * radius  # Square root for uniform distribution on disc
+		var x = r * cos(theta)
+		var y = r * sin(theta)
+		var z = randf_range(-height / 2, height / 2)  # Random point along the height
 		var point = Vector3(x, y, z)
 		verticies.append(point)
 

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4dwwx2psj5e0"]
+
+[ext_resource type="Texture2D" uid="uid://dc17reiry7upl" path="res://temp/streetcorner_Material Base Color.png" id="1_bycqb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nke76"]
+albedo_texture = ExtResource("1_bycqb")
+
+[node name="Straight Ramp" type="Node3D"]
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+material_override = SubResource("StandardMaterial3D_nke76")
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 0.5, 1, 0)

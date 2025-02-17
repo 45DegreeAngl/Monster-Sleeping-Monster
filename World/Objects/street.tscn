@@ -1,33 +1,28 @@
-[gd_scene load_steps=4 format=3 uid="uid://u0a0v8q1ag6d"]
+[gd_scene load_steps=3 format=3 uid="uid://u0a0v8q1ag6d"]
 
 [ext_resource type="ArrayMesh" uid="uid://dumskqm6habqu" path="res://Meshes/Road.tres" id="1_jppt8"]
-[ext_resource type="ArrayMesh" uid="uid://s68klwpsbna7" path="res://Meshes/street.tres" id="2_joy7s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ffsfd"]
-size = Vector3(10, 0.5, 23)
+size = Vector3(16, 0.5, 22.1523)
 
-[node name="street" type="StaticBody3D"]
-
-[node name="Cube" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02065, -0.157875)
+[node name="street" type="MeshInstance3D"]
+transform = Transform3D(0.735, 0, 0, 0, 0.735, 0, 0, 0, 0.735, 0, 0, 0)
 mesh = ExtResource("1_jppt8")
-skeleton = NodePath("")
 
-[node name="Cube_001" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.877204, -0.157875)
-mesh = ExtResource("2_joy7s")
-skeleton = NodePath("")
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Sidewalk" type="CollisionPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.08196, 0, 0)
-depth = 23.0
-polygon = PackedVector2Array(-0.795508, 0.440758, 3.02114, 0.429967, 3.21951, 0.208335, 3.21577, -0.0736889, -0.789006, -0.0622394)
+[node name="Sidewalk" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.92965, 0, 0)
+depth = 16.0
+disabled = true
+polygon = PackedVector2Array(-0.8, 0.44, 3, 0.43, 3.22, 0.2, 3.22, -0.01, -0.8, -0.01)
 
-[node name="Road" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0278201, 0)
+[node name="Road" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.055, 0.335503)
 shape = SubResource("BoxShape3D_ffsfd")
 
-[node name="WalkSide" type="CollisionPolygon3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2227, 0, 0)
-depth = 23.0
-polygon = PackedVector2Array(0.649696, 0.455709, -3.18242, 0.433883, -3.4469, 0.189846, -3.52591, -0.108393, 0.653888, -0.107282)
+[node name="WalkSide" type="CollisionPolygon3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.10108, 0, 0)
+depth = 16.0
+disabled = true
+polygon = PackedVector2Array(0.65, 0.43, -3.2, 0.43, -3.45, 0.19, -3.45, -0.1, 0.65, -0.1)

@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bw6s6ujom3y62"]
+[gd_scene load_steps=4 format=3 uid="uid://bw6s6ujom3y62"]
 
 [ext_resource type="Script" path="res://HUD/hunted_guy.gd" id="1_6bwln"]
 [ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="1_i7otw"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u4pw6"]
+size = Vector3(1, 1, 0)
 
 [node name="Hunted Guy" type="Node3D"]
 script = ExtResource("1_6bwln")
@@ -11,16 +14,16 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, -0.598555, 0)
 mesh = ExtResource("1_i7otw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.705453, 0)
-size = Vector3(6.75, 0.001, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00477982, -0.694426, -0.687393)
+size = Vector3(6.75, 0.001, 8.69922)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0404952, 0.747975)
 size = Vector3(5.41895, 3.59668, 0.001)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.902202, 0.431314, 0, -0.431314, 0.902202, 0, 1.05286, -0.992432)
-size = Vector3(6.75, 0.001, 3.94141)
+transform = Transform3D(1, 0, 0, 0, 0.902202, 0.431314, 0, -0.431314, 0.902202, 0, 0.859438, -1.29772)
+size = Vector3(6.75, 0.001, 8.14648)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.103408, -2.44349)
@@ -31,3 +34,11 @@ transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.1
 light_energy = 2.5
 spot_range = 3.75436
 spot_angle = 21.1601
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.00836288, 0, 0.762097, 0, 4.54647, 0, -7.60577, 0, 0.000837958, 2.42045, 0, -2.02805)
+mesh = SubResource("BoxMesh_u4pw6")
+
+[node name="CSGMesh3D2" type="CSGMesh3D" parent="."]
+transform = Transform3D(0.00836288, 0, 0.762097, 0, 4.54647, 0, -7.60577, 0, 0.000837958, -2.31587, 0.012503, -2.01821)
+mesh = SubResource("BoxMesh_u4pw6")

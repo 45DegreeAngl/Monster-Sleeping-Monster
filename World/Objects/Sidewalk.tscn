@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbr1rvb8cd028"]
+
+[ext_resource type="ArrayMesh" uid="uid://s68klwpsbna7" path="res://Meshes/street.tres" id="1_w25gj"]
+
+[node name="Cube_001" type="MeshInstance3D"]
+transform = Transform3D(0.873974, 0, 0, 0, 1.00271, 0, 0, 0, 0.695116, 0, 0.877009, 0)
+mesh = ExtResource("1_w25gj")
+skeleton = NodePath("")

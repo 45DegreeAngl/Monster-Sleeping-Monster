@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://dru3ew75bvrd6"]
+
+[ext_resource type="PackedScene" uid="uid://cbgay4ikhmuqv" path="res://World/Objects/building1.tscn" id="1_mnnik"]
+[ext_resource type="PackedScene" uid="uid://u0a0v8q1ag6d" path="res://World/Objects/street.tscn" id="2_4wyyy"]
+[ext_resource type="PackedScene" uid="uid://dbr1rvb8cd028" path="res://World/Objects/Sidewalk.tscn" id="2_jdg6k"]
+[ext_resource type="PackedScene" uid="uid://dxleo4viqq0bx" path="res://World/Objects/streetcorner.tscn" id="3_1o0lh"]
+[ext_resource type="PackedScene" uid="uid://eqx3hvovmewv" path="res://World/Objects/streetcornerstraight.tscn" id="4_l87hh"]
+[ext_resource type="PackedScene" uid="uid://8875s5o3qpvs" path="res://World/Objects/streetCornerStraightSidewalk.tscn" id="6_ujpst"]
+[ext_resource type="PackedScene" uid="uid://c3ktcupvrumbs" path="res://World/Objects/street_corner_sidewalk.tscn" id="7_i1374"]
+
+[node name="Library" type="Node3D"]
+
+[node name="Blding 1" parent="." instance=ExtResource("1_mnnik")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.7093, 0, 0)
+
+[node name="Cube_001" parent="." instance=ExtResource("2_jdg6k")]
+
+[node name="street" parent="." instance=ExtResource("2_4wyyy")]
+transform = Transform3D(0.735, 0, 0, 0, 0.735, 0, 0, 0, 0.735, 23.4202, 0, 36.4147)
+
+[node name="streetcorner" parent="." instance=ExtResource("3_1o0lh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.947416, 0, -54.3691)
+
+[node name="streetcornerstraight" parent="." instance=ExtResource("4_l87hh")]
+transform = Transform3D(0.92, 0, 0, 0, 0.92, 0, 0, 0, 0.92, -21.9051, 0, -30.7415)
+
+[node name="StreeCornerStraight" parent="." instance=ExtResource("6_ujpst")]
+transform = Transform3D(2.69901e-05, 0, 0.890372, 0, 1, 0, -0.909274, 0, 2.6429e-05, -2.48489, 0.997129, 39.1529)
+
+[node name="StreetCornerSidewalk" parent="." instance=ExtResource("7_i1374")]
+transform = Transform3D(0.9, 0, 0, 0, 1, 0, 0, 0, 0.9, 23.1988, 0, -2.36184)

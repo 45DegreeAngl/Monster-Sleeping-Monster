@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bpgyffvcghhe7"]
+[gd_scene load_steps=6 format=3 uid="uid://bpgyffvcghhe7"]
 
 [ext_resource type="Script" path="res://Hittables/pedestrian.gd" id="1_pwa4j"]
 [ext_resource type="ArrayMesh" uid="uid://crvpu5reylyf" path="res://Meshes/monsterman.tres" id="2_ibvn6"]
+[ext_resource type="AudioStream" uid="uid://d2wfql8nyidk8" path="res://Sounds/Hit Metal indivudal.wav" id="3_dwwpj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_52t77"]
 
@@ -23,5 +24,8 @@ shape = SubResource("CylinderShape3D_7rdtq")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_dwwpj")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

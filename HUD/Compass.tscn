@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://t82dsiqbvsw2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ycbig"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w1y7r"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Compass" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -8.86451e-08, 1, 0, -2.02796, -4.37114e-08, 0, 0, 0)
+cast_shadow = 0
+material = SubResource("StandardMaterial3D_ycbig")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSGCylinder3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0341097, 1.02316, 0.0110673)
+cast_shadow = 0
+polygon = PackedVector2Array(0, 0, 0, 1, 1, 0)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 3
+material = SubResource("StandardMaterial3D_w1y7r")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmjyffcugwptr"]
+
+[ext_resource type="ArrayMesh" uid="uid://0be2sr38fdpl" path="res://Meshes/building1.tres" id="1_usd8p"]
+
+[node name="CSGMesh3D" type="CSGMesh3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01468, 0)
+use_collision = true
+mesh = ExtResource("1_usd8p")

@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://c6sejin3qwltq"]
+[gd_scene load_steps=9 format=3 uid="uid://c6sejin3qwltq"]
 
 [ext_resource type="PackedScene" uid="uid://juon00x6o2b7" path="res://Vehicles/Player/cart_test.tscn" id="2_2axva"]
-[ext_resource type="PackedScene" uid="uid://bpgyffvcghhe7" path="res://Hittables/pedestrian.tscn" id="3_qfgf3"]
 [ext_resource type="PackedScene" uid="uid://cpgm7dsfirpid" path="res://Vehicles/Police/police.tscn" id="3_qnnqp"]
 [ext_resource type="PackedScene" uid="uid://cbgay4ikhmuqv" path="res://World/Objects/building1.tscn" id="4_6dlxd"]
-[ext_resource type="PackedScene" uid="uid://u0a0v8q1ag6d" path="res://World/Objects/street.tscn" id="5_8cgij"]
+[ext_resource type="PackedScene" uid="uid://bwughhvhgx3x7" path="res://World/Obstacles/platforms.tscn" id="4_77i8f"]
+[ext_resource type="PackedScene" uid="uid://boq21432gl2ov" path="res://World/Obstacles/ramp.tscn" id="5_35yuh"]
+[ext_resource type="PackedScene" uid="uid://seenhv5a4v5a" path="res://World/Obstacles/Straight Platforms.tscn" id="6_dpv5b"]
 
 [sub_resource type="Sky" id="Sky_04s2w"]
 
@@ -32,9 +33,6 @@ environment = SubResource("Environment_8j2wb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.760995, 0.648758, 0, -0.648758, 0.760995, 0, 5.32047, 0)
 
-[node name="Pedestrian" parent="." instance=ExtResource("3_qfgf3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.20626, -13.8517)
-
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862091, 0, -40.3879)
 use_collision = true
@@ -49,5 +47,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35339, 17.8397)
 [node name="Node3D" parent="." instance=ExtResource("4_6dlxd")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.4353, 5.08943, -32.0217)
 
-[node name="street" parent="." instance=ExtResource("5_8cgij")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.07913, 0.518148, 0)
+[node name="Platforms" parent="." instance=ExtResource("4_77i8f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.183, 0.832067, 0.332066)
+
+[node name="Ramp" parent="." instance=ExtResource("5_35yuh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.8481, 0.402849, 15.1575)
+
+[node name="Platforms2" parent="." instance=ExtResource("6_dpv5b")]
+transform = Transform3D(-0.0998407, 0, -0.995003, 0, 1, 0, 0.995003, 0, -0.0998407, 10.2748, 0.499998, 15.4948)
