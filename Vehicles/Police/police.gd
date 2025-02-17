@@ -14,6 +14,10 @@ var target:CharacterBody3D
 func _ready() -> void:
 	find_player()
 
+func collateral(hit_velocity):
+	$AudioStreamPlayer3D.play()
+	velocity += (hit_velocity * 1.5)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta

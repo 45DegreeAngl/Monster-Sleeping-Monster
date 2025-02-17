@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cpgm7dsfirpid"]
+[gd_scene load_steps=14 format=3 uid="uid://cpgm7dsfirpid"]
 
 [ext_resource type="Script" path="res://Vehicles/Police/police.gd" id="1_1iuvb"]
 [ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_dj82c"]
@@ -7,6 +7,8 @@
 [ext_resource type="ArrayMesh" uid="uid://b5ykghvir3y18" path="res://Meshes/Wheel 3.tres" id="5_b4fer"]
 [ext_resource type="ArrayMesh" uid="uid://cfv7q76c04688" path="res://Meshes/Wheel 4.tres" id="6_yxeap"]
 [ext_resource type="PackedScene" uid="uid://bnkcet013n46e" path="res://World/Objects/eyeball.tscn" id="7_wfcku"]
+[ext_resource type="AudioStream" uid="uid://b6qoifaop8bjq" path="res://Sounds/hitting-pan-top-80115.wav" id="8_w3t1h"]
+[ext_resource type="AudioStream" uid="uid://icylmhq5o15o" path="res://Sounds/SIREN12.wav" id="9_xd4vb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 
@@ -107,6 +109,17 @@ transform = Transform3D(0.0297642, 0, -0.111081, 0, 0.115, 0, 0.111081, 0, 0.029
 process_callback = 0
 wait_time = 0.5
 autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_w3t1h")
+volume_db = 8.0
+pitch_scale = 0.5
+
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_xd4vb")
+volume_db = 8.0
+pitch_scale = 2.0
+autoplay = true
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="Oscillation" to="." method="_on_oscillation_timeout"]

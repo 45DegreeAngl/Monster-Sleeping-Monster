@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://juon00x6o2b7"]
+[gd_scene load_steps=12 format=3 uid="uid://juon00x6o2b7"]
 
 [ext_resource type="Script" path="res://Vehicles/Player/cart_test.gd" id="1_qv3xu"]
 [ext_resource type="ArrayMesh" uid="uid://cdt4k48jhqpu" path="res://Meshes/PlayerCar_body.tres" id="2_avlsg"]
@@ -7,6 +7,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b5ykghvir3y18" path="res://Meshes/Wheel 3.tres" id="5_s7dd3"]
 [ext_resource type="ArrayMesh" uid="uid://cfv7q76c04688" path="res://Meshes/Wheel 4.tres" id="6_vjwi4"]
 [ext_resource type="PackedScene" uid="uid://t82dsiqbvsw2" path="res://HUD/Compass.tscn" id="7_otqf8"]
+[ext_resource type="AudioStream" uid="uid://bd7ayou3sbywj" path="res://Sounds/rev.wav" id="8_svjig"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6alws"]
 radius = 0.664063
@@ -104,6 +105,12 @@ spot_range = 20.0
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5, 0)
 spot_range = 9.72877
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_svjig")
+volume_db = 1.0
+pitch_scale = 0.5
+autoplay = true
 
 [connection signal="body_entered" from="Hit box" to="." method="_on_hit_box_body_entered"]
 [connection signal="timeout" from="Reassign target" to="." method="calculate_closest_target"]

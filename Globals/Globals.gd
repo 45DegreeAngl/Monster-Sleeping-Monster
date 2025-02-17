@@ -3,15 +3,25 @@ extends Node
 ##player variables
 signal time_left_changed
 signal points_changed
+signal life_lost
 signal chosen_color_changed
 signal chosen_multiplier_changed
-@onready var time_left_in_sec : float = 180.0:
+@onready var time_left_in_sec : float = 360.0:
 	set(value):
 		time_left_in_sec = value
 		time_left_changed.emit()
+var lives : int = 3:
+	set(value):
+		lives = value
+		life_lost.emit()
+var milestone : float = 1000
+var milestone_achieved = 1
 @onready var points : int = 0:
 	set(value):
 		points = value
+		if points>milestone*(milestone_achieved * milestone_achieved)/2:
+			time_left_in_sec += 10
+			milestone_achieved+=1
 		points_changed.emit()
 @onready var total_time_in_sec : float = 0
 @onready var cur_chosen_color : Color = colors.keys()[0]:
@@ -23,6 +33,8 @@ const multipliers : Array[float] = [1.0,0.5,0.3,1.5,2.0,3.0,4.0,5.0,7.5,10.0,15.
 	set(value):
 		cur_chosen_multiplier = value
 		chosen_multiplier_changed.emit()
+##cop limit
+const cop_limit : int = 20
 ##pedestrian constants
 const spawn_cap : int = 500
 var target_dictionary : Dictionary = {}
@@ -79,13 +91,13 @@ const colors : Dictionary = {
 	Color.GOLD: "Gold"
 }
 #physics
-const mass_variations : Array[float] = [0.5,0.75,1.0,1.25,1.5,1.75,2.0]
+const mass_variations : Array[float] = [0.25,0.5,0.75,1.0,1.25,1.5,1.75]
 const size_variations : Array[float] = [0.3,0.5,0.7,0.9,1.0,1.2,1.4,1.6,1.8,2.0,3.0,4.0,5.0]
-const friction_variations : Array[float] = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
+const friction_variations : Array[float] = [0.0,0.1,0.2,0.3,0.4]
 const rough_variations : Array[bool] = [true,false]
 const bounce_variations : Array[float] = [0.0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0]
 const absorbant_variations : Array[bool] = [true,false]
-const gravity_variations : Array[float] = [0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1.0,1.5,2.0,3.0]
+const gravity_variations : Array[float] = [0.4,0.5,0.6,0.7,0.8,0.9]
 
 func get_random_child(node:Node)->Node:
 	return node.get_child(randi()%node.get_child_count())

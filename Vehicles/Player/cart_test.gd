@@ -3,6 +3,10 @@ extends Car
 @export var target : Node3D
 @onready var compass: Node3D = $Compass
 
+func collateral(hit_velocity):
+	Globals.lives -= 1
+	velocity += (hit_velocity * 1.5)
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y -= gravity * delta
@@ -34,8 +38,12 @@ func apply_friction():
 func handle_movement(delta):
 	if Input.is_action_pressed("W"):
 		local_velocity.z -= engine_power*delta
+		$AudioStreamPlayer3D.play()
 	elif Input.is_action_pressed("S"):
 		local_velocity.z += engine_power/2 * delta
+		$AudioStreamPlayer3D.play()
+	else:
+		$AudioStreamPlayer3D.stop()
 	
 	if Input.is_action_pressed("Space") and is_on_floor() and not Input.is_action_just_pressed("Space"):
 		if !drifting:
@@ -85,8 +93,10 @@ func global_velocity_to_local(global_vel)->Vector3:
 ##visually change the chasis
 func _process(_delta: float) -> void:
 	if is_instance_valid(target) and target:
+		compass.visible = true
 		compass.look_at(target.global_position)
 	else:
+		compass.visible = false
 		compass.rotation = Vector3(deg_to_rad(-90),0,0)
 	#front_ray.global_position = global_position
 	#back_ray.global_position = global_position
@@ -119,7 +129,7 @@ func calculate_closest_target():
 		if pedestrian.global_position.distance_to(global_position)<current_distance:
 			current_winner = pedestrian
 			current_distance = pedestrian.global_position.distance_to(global_position)
-	print("target has been set")
+	#print("target has been set")
 	target = current_winner
 
 func align_with_y(xform, new_y):

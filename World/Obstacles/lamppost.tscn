@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://buvi3davaldsj"]
+
+[ext_resource type="ArrayMesh" uid="uid://cvxkqypyec1g7" path="res://Meshes/LampPost.tres" id="1_dulc3"]
+[ext_resource type="ArrayMesh" uid="uid://c1brh4ne1rqaq" path="res://Meshes/Lamp Eyeball.tres" id="2_8cy6p"]
+
+[node name="Lamppost" type="CSGMesh3D"]
+use_collision = true
+mesh = ExtResource("1_dulc3")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(3.05648, 0, 0, 0, -2.12701, 2.10758, 0, -2.03084, -2.20738, 11.1633, 21.1908, 0)
+mesh = ExtResource("2_8cy6p")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.723269, 0.690567, 0, -0.690567, -0.723269, 11.1633, 19.6638, -4.76837e-07)
+omni_range = 42.0
